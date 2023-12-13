@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KALKULATOR DETIK</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="container">
+    <h1> KALKULATOR DETIK </h1>
+    <div class="input-container">
+      <label for="days">HARI:</label>
+      <input type="number" id="days" min="0">
+    </div>
+    <div class="input-container">
+      <label for="hours">JAM:</label>
+      <input type="number" id="hours" min="0">
+    </div>
+    <div class="input-container">
+      <label for="minutes">MENIT:</label>
+      <input type="number" id="minutes" min="0">
+    </div>
+    <button onclick="calculateSeconds()">Hitung Detik</button>
+    
+
+    <div class="process-tape">
+      <h2>PROCESS</h2>
+      <div id="day-process"></div>
+      <div id="hour-process"></div>
+      <div id="minute-process"></div>
+
+    </div>
+
+    <div id="result"></div>
+
+  <div id="reset-container"></div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
