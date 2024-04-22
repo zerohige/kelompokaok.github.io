@@ -1,41 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>KALKULATOR DETIK</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pengarsipan File Dokumen</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1> KALKULATOR DETIK </h1>
-    <div class="input-container">
-      <label for="days">HARI:</label>
-      <input type="number" id="days" min="0">
-    </div>
-    <div class="input-container">
-      <label for="hours">JAM:</label>
-      <input type="number" id="hours" min="0">
-    </div>
-    <div class="input-container">
-      <label for="minutes">MENIT:</label>
-      <input type="number" id="minutes" min="0">
-    </div>
-    <button onclick="calculateSeconds()">Hitung Detik</button>
-    
-
-    <div class="process-tape">
-      <h2>PROCESS</h2>
-      <div id="day-process"></div>
-      <div id="hour-process"></div>
-      <div id="minute-process"></div>
-
-    </div>
-
-    <div id="result"></div>
-
-  <div id="reset-container"></div>
+<div class="container">
+    <h1>Pengarsipan File Dokumen</h1>
+    <input type="file" id="fileInput" accept=".txt,.doc,.docx,.ppt,.pptx"> <!-- Input untuk memilih dokumen -->
+    <button onclick="encryptDocument()">Enkripsi</button>
+    <button onclick="decryptDocument()">Dekripsi</button>
+    <div id="message"></div>
 </div>
-
-  <script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script> <!-- CryptoJS dari CDN -->
+<script src="script.js"></script>
 </body>
 </html>
