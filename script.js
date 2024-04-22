@@ -1,38 +1,67 @@
-function calculateSeconds() {
-  var daysInput = document.getElementById("days").value;
-  var hoursInput = document.getElementById("hours").value;
-  var minutesInput = document.getElementById("minutes").value;
-
-  // Validasi input agar hanya menerima angka
-  var days = /^\d+$/.test(daysInput) ? parseInt(daysInput) : 0;
-  var hours = /^\d+$/.test(hoursInput) ? parseInt(hoursInput) : 0;
-  var minutes = /^\d+$/.test(minutesInput) ? parseInt(minutesInput) : 0;
-
-  var dayProcess = "Jumlah Hari Hari x 24 x 60 x 60 = " + (days * 24 * 60 * 60).toLocaleString()+" detik";
-  var hourProcess = "Jumlah Jam Jam x 60 x 60 = " + (hours * 60 * 60).toLocaleString()+ " detik"; 
-  var minuteProcess = "Jumlah Menit Menit x 60 = " + (minutes * 60).toLocaleString()+" detik";
-
-  // Menampilkan Proses
-  document.getElementById("day-process").innerHTML = dayProcess.replace("Jumlah Hari", days) ;
-  document.getElementById("hour-process").innerHTML = hourProcess.replace("Jumlah Jam", hours);
-  document.getElementById("minute-process").innerHTML = minuteProcess.replace("Jumlah Menit", minutes);
-
-  var totalSeconds = (days * 24 * 60 * 60) + (hours * 60 * 60) + (minutes * 60);
-  document.getElementById("result").innerHTML = "Total : " + totalSeconds.toLocaleString()+ " Detik";
-  
-  // Menambahkan tombol reset
-  var resetButton = document.createElement("button");
-  resetButton.innerHTML = "Reset";
-  resetButton.onclick = function() {
-    document.getElementById("days").value = "";
-    document.getElementById("hours").value = "";
-    document.getElementById("minutes").value = "";
-    document.getElementById("day-process").innerHTML = "";
-    document.getElementById("hour-process").innerHTML = "";
-    document.getElementById("minute-process").innerHTML = "";
-    document.getElementById("result").innerHTML = "";
-  };
-
-  document.getElementById("reset-container").innerHTML = "";
-  document.getElementById("reset-container").appendChild(resetButton);
+function encryptDocument() {
+    var fileInput = document.getElementById('fileInput');
+    var file = fileInput.files[0];
+    if (file) {
+        var reader = new FileReader();
+        reader.onload = function(event) {
+            var plaintext = event.target.result;
+            var password = prompt("Masukkan password untuk enkripsi:");
+            if (password) {
+                var encrypted = CryptoJS.AES.encrypt(plaintext, password).toString();
+                var blob = new Blob([encrypted], {type: "application/octet-stream"});
+                var filename = file.name + ".enc";
+                saveAs(blob, filename);
+                document.getElementById("message").innerText = "Dokumen telah terenkripsi " + filename;
+            }
+        };
+        reader.readAsBinaryString(file);
+    }
 }
+
+function decryptDocument() {
+    var fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = ".enc";
+    fileInput.addEventListener("change", function(event) {
+        var file = event.target.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                var ciphertext = event.target.result;
+                var password = prompt("Masukkan password untuk dekripsi:");
+                if (password) {
+                    try {
+                        var decrypted = CryptoJS.AES.decrypt(ciphertext, password).toString(CryptoJS.enc.Utf8);
+                        // Periksa apakah dekripsi berhasil dengan memeriksa hasilnya
+                        if (decrypted) {
+                            var filename = file.name.replace(".enc", "");
+                            var blob = new Blob([decrypted], {type: "application/octet-stream"});
+                            saveAs(blob, filename);
+                            document.getElementById("message").innerText = "Dokumen telah terdekripsi " + filename;
+                        } else {
+                            alert("Error: Password salah!");
+                        }
+                    } catch (error) {
+                        alert("Error: Password salah!");
+                    }
+                }
+            };
+            reader.readAsBinaryString(file);
+        }
+    });
+    fileInput.click();
+}
+
+
+var saveAs = function(blob, filename) {
+    var link = document.createElement("a");
+    if (typeof link.download === "string") {
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } else {
+        window.open(blob);
+    }
+};
