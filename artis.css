@@ -1,0 +1,234 @@
+body {
+    background-image: url('C:/Users/HP/Documents/Semester 4/Perancangan Web/Website/Gambar/background.png'); /* Ganti dengan path gambar background */
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: 'Georgia', serif;
+}
+
+.Header {
+    background-color: #3A3B3C;
+    color: white;
+    padding: 5px;
+    margin-left: 660px;
+    margin-bottom: 100px;
+    margin-right: 660px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    font-family: 'Georgia', serif;
+    cursor: pointer; /* Tambahkan efek cursor untuk menunjukkan bisa ditekan */
+}
+
+.a {
+    color: white; /* Mengubah warna teks pada link menjadi putih */
+    text-decoration: none; /* Menghilangkan garis bawah teks link */
+    width: 100%; /* Memastikan <a> mengisi lebar penuh */
+    display: block; /* Membuat <a> mengisi keseluruhan area untuk bisa diklik */
+    text-align: center; /* Menyelaraskan teks di tengah */
+}
+
+.gramophone2 {
+    width: 170px;
+    margin-right: 5px;
+}
+
+.card h2 {
+    font-family: 'Garamond', serif;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+.card {
+    width: 300px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #3A3B3C;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-content ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.card-content ul li {
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+.tap_here1 {
+    background-color: #D3D3D3; /* Latar belakang berwarna hijau */
+    color: black; /* Teks berwarna putih */
+    padding: 10px; /* Padding di sekitar teks */
+    text-align: center; /* Teks rata tengah */
+    border-radius: 5px; /* Sudut dibulatkan */
+    font-weight: bold; /* Teks tebal */
+    margin-top: 10px; /* Margin atas tambahan dari item terakhir */
+}
+
+.tap_here1:hover {
+    background-color: white; /* Hijau sedikit lebih gelap saat hover */
+}
+
+.tap_here2 {
+    background-color: #D3D3D3; /* Latar belakang berwarna hijau */
+    color: black; /* Teks berwarna putih */
+    padding: 10px; /* Padding di sekitar teks */
+    text-align: center; /* Teks rata tengah */
+    border-radius: 5px; /* Sudut dibulatkan */
+    font-weight: bold; /* Teks tebal */
+    margin-top: 10px; /* Margin atas tambahan dari item terakhir */
+}
+
+.tap_here2:hover {
+    background-color: white; /* Hijau sedikit lebih gelap saat hover */
+}
+
+.tap_here3 {
+    background-color: #D3D3D3; /* Latar belakang berwarna hijau */
+    color: black; /* Teks berwarna putih */
+    padding: 10px; /* Padding di sekitar teks */
+    text-align: center; /* Teks rata tengah */
+    border-radius: 5px; /* Sudut dibulatkan */
+    font-weight: bold; /* Teks tebal */
+    margin-top: 10px; /* Margin atas tambahan dari item terakhir */
+}
+
+.tap_here3:hover {
+    background-color: white; /* Hijau sedikit lebih gelap saat hover */
+}
+
+.tap_here4 {
+    background-color: #D3D3D3; /* Latar belakang berwarna hijau */
+    color: black; /* Teks berwarna putih */
+    padding: 10px; /* Padding di sekitar teks */
+    text-align: center; /* Teks rata tengah */
+    border-radius: 5px; /* Sudut dibulatkan */
+    font-weight: bold; /* Teks tebal */
+    margin-top: 10px; /* Margin atas tambahan dari item terakhir */
+}
+
+.tap_here4:hover {
+    background-color: white; /* Hijau sedikit lebih gelap saat hover */
+}
+
+.tap_here5 {
+    background-color: #D3D3D3; /* Latar belakang berwarna hijau */
+    color: black; /* Teks berwarna putih */
+    padding: 10px; /* Padding di sekitar teks */
+    text-align: center; /* Teks rata tengah */
+    border-radius: 5px; /* Sudut dibulatkan */
+    font-weight: bold; /* Teks tebal */
+    margin-top: 10px; /* Margin atas tambahan dari item terakhir */
+}
+
+.tap_here5:hover {
+    background-color: white; /* Hijau sedikit lebih gelap saat hover */
+}
+
+.tap_here6 {
+    background-color: #D3D3D3; /* Latar belakang berwarna hijau */
+    color: black; /* Teks berwarna putih */
+    padding: 10px; /* Padding di sekitar teks */
+    text-align: center; /* Teks rata tengah */
+    border-radius: 5px; /* Sudut dibulatkan */
+    font-weight: bold; /* Teks tebal */
+    margin-top: 10px; /* Margin atas tambahan dari item terakhir */
+}
+
+.tap_here6:hover {
+    background-color: white; /* Hijau sedikit lebih gelap saat hover */
+}
+
+.tap_here7 {
+    background-color: #D3D3D3; /* Latar belakang berwarna hijau */
+    color: black; /* Teks berwarna putih */
+    padding: 10px; /* Padding di sekitar teks */
+    text-align: center; /* Teks rata tengah */
+    border-radius: 5px; /* Sudut dibulatkan */
+    font-weight: bold; /* Teks tebal */
+    margin-top: 10px; /* Margin atas tambahan dari item terakhir */
+}
+
+.tap_here7:hover {
+    background-color: white; /* Hijau sedikit lebih gelap saat hover */
+}
+
+.tap_here8 {
+    background-color: #D3D3D3; /* Latar belakang berwarna hijau */
+    color: black; /* Teks berwarna putih */
+    padding: 10px; /* Padding di sekitar teks */
+    text-align: center; /* Teks rata tengah */
+    border-radius: 5px; /* Sudut dibulatkan */
+    font-weight: bold; /* Teks tebal */
+    margin-top: 10px; /* Margin atas tambahan dari item terakhir */
+}
+
+.tap_here8:hover {
+    background-color: white; /* Hijau sedikit lebih gelap saat hover */
+}
+
+.about-creator-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.about-creator-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #333; /* Warna latar belakang */
+    color:black ; /* Warna teks */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 100px;
+    font-family: 'Georgia', serif;
+}
+
+.about-creator-button:hover {
+    background-color: white; /* Warna latar belakang saat dihover */
+}
+
+.Footer {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    font-family: 'Georgia', serif;
+}

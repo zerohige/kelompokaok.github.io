@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rex Orange County - Songs</title>
+    <link rel="stylesheet" href="imagine_dragons.css">
+    <style>
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spin {
+            animation: spin 2s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <a href="artis.html" style="text-decoration: none; color: inherit;">
+        <h1 style="cursor: pointer;">ABOUT REX ORANGE COUNTY</h1>
+    </a>
+
+    <section class="artist-photo">
+        <img src="Gambar/rex_orange_county.jpg" alt="Rex Orange County" style="width:100%;">
+    </section>
+
+    <!-- Deskripsi Artis -->
+    <section class="artist-container">
+        <div class="artist-description">
+            <p>Rex Orange County, atau yang sebenarnya bernama Alexander O'Connor, adalah seorang penyanyi-penulis lagu asal Inggris yang dikenal dengan gaya musiknya yang autentik dan emosional. Memulai karirnya di Surrey, Inggris, Rex Orange County mencuri perhatian publik dengan kemampuan vokal dan lirik yang tulus. Debut albumnya, "Bcos U Will Never B Free," dirilis pada tahun 2016, namun popularitasnya melejit setelah merilis album "Apricot Princess" pada tahun 2017. Album ini menampilkan lagu-lagu hits seperti "Loving Is Easy" dan "Best Friend," yang membuatnya mendapatkan pengakuan luas dan memantapkan posisinya di industri musik. Rex Orange County terus menghasilkan musik yang penuh emosi dan jujur, seperti yang terdengar dalam album-albumnya yang sukses secara komersial dan kritis, seperti "Pony." Dengan gaya musik yang autentik dan kemampuan bercerita yang luar biasa, Rex Orange County telah menjadi salah satu penyanyi-penulis lagu paling berpengaruh dalam industri musik.</p>
+        </div>
+    </section>
+
+    <section class="inform">
+        <p>FIVE MUSIC OF REX ORANGE COUNTY</p>
+        <div class="scroll-arrow" onclick="scrollToMusic()">↓</div>
+    </section>
+
+    <!-- Song List with Audio Players -->
+    <ul class="Musik">
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/Happiness.m4a')">
+                <img src="Gambar/gramophone.png" alt="Happiness">
+                <figcaption>Happiness</figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/Pluto Projector.m4a')">
+                <img src="Gambar/gramophone.png" alt="Pluto Projector">
+                <figcaption>Pluto Projector</figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/So Far So Good.m4a')">
+                <img src="Gambar/gramophone.png" alt="So Far So Good">
+                <figcaption>So Far So Good</figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/Sunflower.m4a')">
+                <img src="Gambar/gramophone.png" alt="Sunflower">
+                <figcaption>Sunflower</figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/Hopelessly Devoted To You.m4a')">
+                <img src="Gambar/gramophone.png" alt="Hopelessly Devoted To You">
+                <figcaption>Hopelessly Devoted To You</figcaption>
+            </figure>
+        </li>
+    </ul>
+    
+    <section class="social-media-links">
+        <h2>Follow Rex Orange County :</h2>
+        <ul>
+            <li><a href="https://www.facebook.com/rexorangecounty" target="_blank">Facebook</a></li>
+            <li><a href="https://twitter.com/rexorangecounty" target="_blank">Twitter</a></li>
+            <li><a href="https://www.instagram.com/rexorangecounty/" target="_blank">Instagram</a></li>
+            <li><a href="https://www.youtube.com/channel/UCMn8FkvRwhDGK7g3-FFU6kw" target="_blank">YouTube</a></li>
+        </ul>
+    </section>
+
+    <footer class="Footer" style="display: none;">
+        <p>Hak Cipta &copy; 2024 MusicTime</p>
+    </footer>
+    <!-- JavaScript to control audio playback and footer display -->
+    <script>
+        function scrollToMusic() {
+            const musicList = document.querySelector('ul');
+            musicList.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let currentAudio = null;
+
+            function togglePlay(figure, song) {
+                const img = figure.querySelector('img');
+                if (currentAudio && !currentAudio.paused) {
+                    currentAudio.pause();
+                    img.classList.remove('spin');
+                    if (currentAudio.src.includes(song)) {
+                        currentAudio = null;
+                        return;
+                    }
+                }
+
+                const newAudio = new Audio(song);
+
+                newAudio.addEventListener('play', function() {
+                    img.classList.add('spin');
+                });
+
+                newAudio.addEventListener('pause', function() {
+                    img.classList.remove('spin');
+                });
+
+                newAudio.addEventListener('ended', function() {
+                    img.classList.remove('spin');
+                    currentAudio = null;
+                });
+
+                if (currentAudio && currentAudio !== newAudio) {
+                    currentAudio.pause();
+                }
+
+                currentAudio = newAudio;
+                newAudio.play();
+            }
+
+            // Assign the togglePlay function to the global scope
+            window.togglePlay = togglePlay;
+
+            var footer = document.querySelector('.Footer');
+
+            function toggleFooter() {
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                    footer.style.display = 'block';
+                } else {
+                    footer.style.display = 'none';
+                }
+            }
+
+            window.addEventListener('scroll', toggleFooter);
+            window.addEventListener('resize', toggleFooter);
+            toggleFooter(); // Run on load to check initial footer state
+        });
+    </script>
+</body>
+</html>

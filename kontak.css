@@ -1,0 +1,144 @@
+body {
+    background-image: url('C:/Users/HP/Documents/Semester 4/Perancangan Web/Website/Gambar/background.png'); /* Ganti dengan path gambar background */
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: 'Georgia', serif;
+}
+
+.contact-container {
+    background-color: #f9f9f9; /* Warna latar yang lebih cerah */
+    padding: 20px;
+    text-align: center;
+    font-size: 15px; /* Ukuran font yang lebih besar */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Menambahkan bayangan untuk kedalaman */
+}
+
+/* CSS untuk menu navigasi, konsisten dengan navigasi sebelumnya */
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Bayangan untuk efek visual */
+}
+
+.menu li {
+    float: left;
+}
+
+.menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s; /* Transisi yang mulus untuk hover */
+}
+
+.menu li a:hover {
+    background-color: #5a5a5a; /* Warna hover yang lebih menarik */
+}
+
+.section {
+    background-color: rgba(255, 255, 255, 0.8); /* Transparansi ditambahkan */
+    padding: 30px;
+    margin-left: 280px;
+    margin-right: 280px;
+    font-size: 15px;
+    line-height: 1.6;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    border-radius: 20px;
+}
+
+/* CSS untuk sosial media link di bagian kontak */
+.social-media p {
+    color: #333; /* Warna teks untuk paragraf */
+    padding: 10px 0;
+    font-size: 16px; /* Ukuran font yang serasi dengan header */
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    color: black;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s; /* Transisi yang mulus untuk hover */
+}
+
+.social-link:hover {
+    background-color: #5a5a5a; /* Warna hover yang lebih menarik */
+}
+
+.social-link img.social-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav ul.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul.menu li {
+    flex: 1;
+}
+
+nav ul.menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul.menu li a:hover {
+    background-color: #111;
+}
+
+.section {
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-container {
+    margin-left: 340px;
+    margin-right: 340px;
+    margin-bottom: 100px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Footer {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    font-family: 'Georgia', serif;
+}

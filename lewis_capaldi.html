@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lewis Capaldi - Songs</title>
+    <link rel="stylesheet" href="imagine_dragons.css">
+    <style>
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spin {
+            animation: spin 2s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <a href="artis.html" style="text-decoration: none; color: inherit;">
+        <h1 style="cursor: pointer;">ABOUT LEWIS CAPALDI</h1>
+    </a>
+
+    <section class="artist-photo">
+        <img src="Gambar/lewis_capaldi.jpg" alt="Lewis capaldi" style="width:100%;">
+    </section>
+
+    <!-- Deskripsi Artis -->
+    <section class="artist-container">
+        <div class="artist-description">
+            <p>Lewis Capaldi adalah penyanyi dan penulis lagu asal Skotlandia yang dikenal dengan suara yang kuat dan lirik yang emosional. Dilahirkan pada 7 Oktober 1996 di Bathgate, West Lothian, Capaldi mulai menunjukkan bakat musiknya sejak usia muda. Dia memulai karirnya dengan merilis lagu-lagu di platform media sosial, yang kemudian memunculkan perhatian industri musik. Namanya mulai meroket setelah merilis single "Bruises" pada tahun 2017, yang mendapat pujian luas dari kritikus dan mendapatkan popularitas di seluruh dunia. Capaldi merilis album debutnya yang sangat sukses, "Divinely Uninspired to a Hellish Extent", pada tahun 2019, yang mencakup lagu-lagu seperti "Someone You Loved" yang memenangkan penghargaan dan mendapat perhatian global. Dikenal karena kejujuran emosional dalam musiknya, Capaldi telah membangun hubungan yang kuat dengan penggemar, menawarkan lagu-lagu yang menggali kedalaman perasaan manusia tentang cinta, kehilangan, dan kehidupan.</p>
+        </div>
+    </section>
+
+    <section class="inform">
+        <p>5 MUSIC OF LEWIS CAPALDI</p>
+        <div class="scroll-arrow" onclick="scrollToMusic()">↓</div>
+    </section>
+
+    <!-- Song List with Audio Players -->
+    <ul class="Musik">
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/Before You Go.m4a')">
+                <img src="Gambar/gramophone.png" alt="Before You Go">
+                <figcaption>Before You Go</figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/Bruises.m4a')">
+                <img src="Gambar/gramophone.png" alt="Bruises">
+                <figcaption>Bruises</figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/Someone You Loved.m4a')">
+                <img src="Gambar/gramophone.png" alt="Someone You Loved">
+                <figcaption>Someone You Loved</figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/Hold Me While You Wait.m4a')">
+                <img src="Gambar/gramophone.png" alt="Hold Me While You Wait">
+                <figcaption>Hold Me While You Wait</figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/Forever.mp3')">
+                <img src="Gambar/gramophone.png" alt="Forever">
+                <figcaption>Forever</figcaption>
+            </figure>
+        </li>
+    </ul>
+
+    <section class="social-media-links">
+        <h2>Follow Lewis Capaldi :</h2>
+        <ul>
+            <li><a href="https://www.facebook.com/lewiscapaldi" target="_blank">Facebook</a></li>
+            <li><a href="https://twitter.com/LewisCapaldi" target="_blank">Twitter</a></li>
+            <li><a href="https://www.instagram.com/lewiscapaldi/" target="_blank">Instagram</a></li>
+            <li><a href="https://www.youtube.com/channel/UC6jMri3BqKNb-ESZpkKpHXw" target="_blank">YouTube</a></li>
+        </ul>
+    </section>
+
+    <footer class="Footer" style="display: none;">
+        <p>Hak Cipta &copy; 2024 MusicTime</p>
+    </footer>
+    <!-- JavaScript to control audio playback and footer display -->
+    <script>
+        let currentAudio = null;
+
+        function togglePlay(figure, song) {
+            const img = figure.querySelector('img');
+            if (currentAudio && !currentAudio.paused) {
+                currentAudio.pause();
+                img.classList.remove('spin');
+                if (currentAudio.src.includes(song)) {
+                    currentAudio = null;
+                    return;
+                }
+            }
+
+            const newAudio = new Audio(song);
+
+            newAudio.addEventListener('play', function() {
+                img.classList.add('spin');
+            });
+
+            newAudio.addEventListener('pause', function() {
+                img.classList.remove('spin');
+            });
+
+            newAudio.addEventListener('ended', function() {
+                img.classList.remove('spin');
+                currentAudio = null;
+            });
+
+            if (currentAudio && currentAudio !== newAudio) {
+                currentAudio.pause();
+            }
+
+            currentAudio = newAudio;
+            newAudio.play();
+        }
+
+        function scrollToMusic() {
+            const musicList = document.querySelector('ul');
+            musicList.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var footer = document.querySelector('.Footer');
+
+            function toggleFooter() {
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                    footer.style.display = 'block';
+                } else {
+                    footer.style.display = 'none';
+                }
+            }
+
+            window.addEventListener('scroll', toggleFooter);
+            window.addEventListener('resize', toggleFooter);
+            toggleFooter(); // Run on load to check initial footer state
+        });
+    </script>
+</body>
+</html>

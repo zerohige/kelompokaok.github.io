@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NF - Songs</title>
+    <link rel="stylesheet" href="imagine_dragons.css">
+    <style>
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spin {
+            animation: spin 2s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <a href="artis.html" style="text-decoration: none; color: inherit;">
+        <h1 style="cursor: pointer;">ABOUT NF</h1>
+    </a>
+
+    <section class="artist-photo">
+        <img src="Gambar/NF.jpg" alt="NF" style="width:100%;">
+    </section>
+
+    <!-- Deskripsi Artis -->
+    <section class="artist-container">
+        <div class="artist-description">
+            <p>NF adalah rapper dan penyanyi-penulis lagu asal Amerika Serikat yang dikenal dengan lirik yang jujur dan emosional serta gaya rap yang kuat. Lahir pada 30 Maret 1991 dengan nama Nathan John Feuerstein, NF memulai karirnya di industri musik pada awal 2010-an. Dia mendapatkan perhatian luas setelah merilis album debutnya, "Mansion", pada tahun 2015, yang menampilkan lagu-lagu yang memotret perjuangan pribadinya dengan kecanduan, depresi, dan ketidakstabilan emosional. Kesuksesan album tersebut membuka jalan bagi rilis-rilis berikutnya yang juga sukses, seperti "Therapy Session" (2016) dan "Perception" (2017). Lagu-lagu NF sering kali mencerminkan pengalaman hidupnya yang sulit, memberikan pendengar pengalaman mendalam tentang keteguhan hati dan perjuangan manusia. Dengan gaya rap yang tajam dan lirik yang kuat, NF telah membangun hubungan yang erat dengan penggemar, menawarkan musik yang berbicara langsung kepada hati mereka.</p>
+        </div>
+    </section>
+
+    <section class="inform">
+        <p>FIVE MUSIC OF NF</p>
+        <div class="scroll-arrow" onclick="scrollToMusic()">↓</div>
+    </section>
+
+    <!-- Song List with Audio Players -->
+    <ul class="Musik">
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/The Search.m4a')">
+                <img src="Gambar/gramophone.png" alt="The Search">
+                <figcaption>The Search</figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/When I Grow Up.m4a')">
+                <img src="Gambar/gramophone.png" alt="When I Grow Up">
+                <figcaption>When I Grow Up</figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/Trust.m4a')">
+                <img src="Gambar/gramophone.png" alt="Trust">
+                <figcaption>Trust</figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/Therapy Session.mp3')">
+                <img src="Gambar/gramophone.png" alt="Therapy Session">
+                <figcaption>Therapy Session</figcaption>
+            </figure>
+        </li>
+        <li>
+            <figure onclick="togglePlay(this, 'Musik/Clouds.m4a')">
+                <img src="Gambar/gramophone.png" alt="Clouds">
+                <figcaption>Clouds</figcaption>
+            </figure>
+        </li>
+    </ul>
+
+    <section class="social-media-links">
+        <h2>Follow NF :</h2>
+        <ul>
+            <li><a href="https://www.facebook.com/nfrealmusic" target="_blank">Facebook</a></li>
+            <li><a href="https://twitter.com/nfrealmusic" target="_blank">Twitter</a></li>
+            <li><a href="https://www.instagram.com/nfrealmusic/" target="_blank">Instagram</a></li>
+            <li><a href="https://www.youtube.com/user/nfrealmusic" target="_blank">YouTube</a></li>
+        </ul>
+    </section>
+
+    <footer class="Footer" style="display: none;">
+        <p>Hak Cipta &copy; 2024 MusicTime</p>
+    </footer>
+    
+    <!-- JavaScript to control audio playback and footer display -->
+    <script>
+        function scrollToMusic() {
+            const musicList = document.querySelector('ul');
+            musicList.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let currentAudio = null;
+
+            function togglePlay(figure, song) {
+                const img = figure.querySelector('img');
+                if (currentAudio && !currentAudio.paused) {
+                    currentAudio.pause();
+                    img.classList.remove('spin');
+                    if (currentAudio.src.includes(song)) {
+                        currentAudio = null;
+                        return;
+                    }
+                }
+
+                const newAudio = new Audio(song);
+
+                newAudio.addEventListener('play', function() {
+                    img.classList.add('spin');
+                });
+
+                newAudio.addEventListener('pause', function() {
+                    img.classList.remove('spin');
+                });
+
+                newAudio.addEventListener('ended', function() {
+                    img.classList.remove('spin');
+                    currentAudio = null;
+                });
+
+                if (currentAudio && currentAudio !== newAudio) {
+                    currentAudio.pause();
+                }
+
+                currentAudio = newAudio;
+                newAudio.play();
+            }
+
+            // Assign the togglePlay function to the global scope
+            window.togglePlay = togglePlay;
+
+            var footer = document.querySelector('.Footer');
+
+            function toggleFooter() {
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                    footer.style.display = 'block';
+                } else {
+                    footer.style.display = 'none';
+                }
+            }
+
+            window.addEventListener('scroll', toggleFooter);
+            window.addEventListener('resize', toggleFooter);
+            toggleFooter(); // Run on load to check initial footer state
+        });
+    </script>
+</body>
+</html>
