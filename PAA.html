@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAA PROJECT</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            justify-content: center;
+        }
+        #mapCanvas {
+            border: 1px solid black;
+        }
+        .button-container {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="mapCanvas" width="4800" height="4800"></canvas>
+    <div class="button-container">
+        <button onclick="redesignMap()">Redesign</button>
+    </div>
+    <script src="config.js"></script>
+    <script src="init.js"></script>
+    <script src="utils.js"></script>
+    <script src="mapGenerator.js"></script>
+    <script src="buildingPlacement.js"></script>
+    <script src="drawMap.js"></script>
+</body>
+</html>
